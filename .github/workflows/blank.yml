@@ -4,31 +4,29 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push or pull request events
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# A workflow run is made up of one or more jobs
 jobs:
   Compilar:
     # Criar máquina virtual para usar os pipelines
     runs-on: ubuntu-latest
 
     steps:
-       - name: Fazer git clone
-        run: actions/checkout@v4
+      # Baixar o código do repositório
+      - name: Fazer git clone
+        uses: actions/checkout@v4
 
-       - name: Executando primeiro comando  
-        run: echo Amo DEVOPS
+      # Executar primeiro comando
+      - name: Executando primeiro comando
+        run: echo "Amo DEVOP"
 
-          - name: 
-          echo Add other actions to build,
-
-
-          
-          echo test, and deploy your project.
+      # Executar outros comandos
+      - name: Executando outros comandos
+        run: |
+          echo "Add other actions to build,"
+          echo "test, and deploy your project."
