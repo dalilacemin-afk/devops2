@@ -30,3 +30,14 @@ jobs:
         run: |
           echo "Add other actions to build,"
           echo "test, and deploy your project."
+  Docker:
+    needs: Compilar
+    runs-on: ubuntu-latest
+
+    steps:  
+    - name: Docker Login
+      uses: docker/login-action@v4.6.0
+      with:
+        username: ${{secrets.DOCKER}}
+        password: $ {{123}}
+    
