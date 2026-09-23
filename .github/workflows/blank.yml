@@ -41,3 +41,14 @@ jobs:
         username: ${{secrets.DOCKER}}
         password: $ {{123}}
     
+    - name: Build and push Docker images
+      users: docker/build-push-action@v7.6.0
+  with:
+          file: dockerfile
+          push: true
+          tags: ngaloni/img_ronaldo: 1.0
+
+          
+    
+    # GitHub Token used to authenticate against a repository for Git context
+    github-token: # optional, default is ${{ github.token }}
